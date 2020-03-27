@@ -1,0 +1,9 @@
+.rhf {
+    display: flex;
+    flex-direction: column;
+}
+
+.error{
+    color:red;
+    padding: 10px 0;
+}

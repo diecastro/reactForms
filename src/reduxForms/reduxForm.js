@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React from 'react';
 import { Field, reduxForm } from 'redux-form';
 import { validateFormik } from '../validator';
 
@@ -45,6 +45,6 @@ const ReminderReduxForm = props => {
 
 export default reduxForm({
   form: 'remindersForm',
-  validate:validateFormik,
-  initialValues: ({ description: '', completed:false })
+  validate: validateFormik,
+  initialValues: ({description: '', completed: false})
 })(ReminderReduxForm);

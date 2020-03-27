@@ -11,6 +11,8 @@ import TodoFormikForm from './formikForms/formikForm';
 import FormikFormMUI from './formikForms/formikFormMui';
 import ReminderReduxForm from './reduxForms/reduxForm';
 import ReminderReduxFormMUI from './reduxForms/reduxFormMui';
+import ReachHooksForm from './reactHooksForm/reactHookForm';
+import ReachHooksFormMUI from './reactHooksForm/reactHookFormsMUI';
 
 
 function FloatingButton({color, action, label, identifier}) {
@@ -37,6 +39,8 @@ class App extends React.Component {
     openFormikMui: false,
     openRF: false,
     openRFMui: false,
+    openRHF: false,
+    openRHFMui: false
   };
 
   handleClose = (key) => {
@@ -64,6 +68,8 @@ class App extends React.Component {
             <FloatingButton action={this.openDialog} label={'FKM'} color={'secondary'} identifier={'openFormikMui'}/>
             <FloatingButton action={this.openDialog} label={'RF'} color={'primary'} identifier={'openRF'}/>
             <FloatingButton action={this.openDialog} label={'RFM'} color={'secondary'} identifier={'openRFMui'}/>
+            <FloatingButton action={this.openDialog} label={'RHF'} color={'primary'} identifier={'openRHF'}/>
+            <FloatingButton action={this.openDialog} label={'RHFM'} color={'secondary'} identifier={'openRHFMui'}/>
           </div>
         </div>
         <FormDialog open={this.state.openFormik} onClose={this.handleClose} identifier={'openFormik'}>
@@ -82,7 +88,12 @@ class App extends React.Component {
           <ReminderReduxFormMUI onSubmit={this.props.addToDo}/>
         </FormDialog>
 
-
+        <FormDialog open={this.state.openRHF} onClose={this.handleClose} identifier={'openRHF'}>
+          <ReachHooksForm onSubmit={this.props.addToDo}/>
+        </FormDialog>
+        <FormDialog open={this.state.openRHFMui} onClose={this.handleClose} identifier={'openRHFMui'}>
+          <ReachHooksFormMUI onSubmit={this.props.addToDo}/>
+        </FormDialog>
       </>
     );
   }
